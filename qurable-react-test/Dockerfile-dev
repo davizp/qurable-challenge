@@ -1,0 +1,10 @@
+FROM node:14.19.0
+
+# Set the work directory
+RUN mkdir -p /app
+WORKDIR /app
+
+#Expose the port
+EXPOSE 3000
+
+ENTRYPOINT sleep infinity

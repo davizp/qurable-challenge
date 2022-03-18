@@ -1,0 +1,34 @@
+{
+  "name": "ntf-service",
+  "version": "1.0.0",
+  "description": "Fake NTF Marketplace",
+  "main": "start.js",
+  "engines": {
+    "node": ">= 14.0.0"
+  },
+  "scripts": {
+    "start": "node start.js",
+    "watch": "nodemon start.js",
+    "test": "npm test",
+    "docker:bash": "docker exec -it `docker ps | grep nft_service\\ | awk '{print $1}'` bash || true",
+    "docker:mongodb": "docker exec -it `docker ps | grep mongo\\ | awk '{print $1}'` bash",
+    "docker:start": "docker-compose -f docker-compose.dev.yml up -d",
+    "docker:stop": "docker-compose -f docker-compose.dev.yml kill",
+    "docker:rm": "docker-compose -f docker-compose.dev.yml rm -f"
+  },
+  "author": "David Nuñez",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
+    "es6-promise": "^4.2.8",
+    "express": "^4.17.3",
+    "mongoose": "^6.2.6",
+    "mongoose-mongodb-errors": "0.0.2",
+    "validator": "^13.7.0"
+  },
+  "devDependencies": {
+    "nodemon": "1.11.0"
+  }
+}
