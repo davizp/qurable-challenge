@@ -3,17 +3,19 @@ import TextField from '@mui/material/TextField';
 import CircularProgress from '@mui/material/CircularProgress';
 
 function RenderTextField(props) {
+  const { loading, ...restProps } = props;
+
   return (
     <Paper>
       <TextField
-        {...props}
+        {...restProps}
         label="Search..."
         variant="filled"
         InputProps={{
           ...props.InputProps,
           endAdornment: (
             <>
-              {props.loading ? <CircularProgress color="inherit" size={20} /> : null}
+              {loading ? <CircularProgress color="inherit" size={20} /> : null}
               {props.InputProps.endAdornment}
             </>
           ),

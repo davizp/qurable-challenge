@@ -18,7 +18,10 @@ function SearchBox() {
   const [filterText, setFilterText] = React.useState('');
   const { data, isLoading } = useQuery(['items', filterText], getItemList);
 
-  const debouncedRouterPush = React.useMemo(() => debounce(router.push), [router.push]);
+  const debouncedRouterPush = React.useMemo(
+    () => debounce(router.push),
+    [router.push]
+  );
 
   const renderInput = React.useCallback(
     (props) => {
@@ -32,8 +35,19 @@ function SearchBox() {
     debouncedRouterPush(`/items?search=${value}`);
   };
 
+  const onOpen = () => {
+    setOpen(true);
+  };
+
+  const onClose = () => {
+    setOpen(false);
+  };
+
   return (
     <Autocomplete
+      open={open}
+      onOpen={onOpen}
+      onClose={onClose}
       inputValue={filterText}
       onInputChange={onInputChange}
       isOptionEqualToValue={getIsOptionEqualToValue}

@@ -2,6 +2,7 @@ import Box from '@mui/material/Box';
 import IconButton from '@mui/material/IconButton';
 import Divider from '@mui/material/Divider';
 import Paper from '@mui/material/Paper';
+import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
 import { styled } from '@mui/system';
@@ -30,18 +31,18 @@ function Item(props) {
             {name}
           </Typography>
 
-          <Typography variant="body2" sx={{ fontWeight: 'bold' }}>
-            {price.toFixed(5)}{' '}
-            <Box verticalAlign="bottom" display="inline-block">
-              <Image
-                src="/assets/svgs/eth.svg"
-                width="15"
-                height="15"
-                title="Etherium"
-                alt="Etherium"
-              />
-            </Box>
-          </Typography>
+          <Stack flexDirection="row" spacing={2}>
+            <Typography variant="body2" sx={{ fontWeight: 'bold', marginRight: 1 }}>
+              {price.toFixed(5)}
+            </Typography>
+            <Image
+              src="/assets/svgs/eth.svg"
+              width="12"
+              height="12"
+              title="Etherium"
+              alt="Etherium"
+            />
+          </Stack>
         </Box>
 
         <Divider />
